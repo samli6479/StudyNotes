@@ -1,4 +1,6 @@
 /*
+https://codeforces.com/problemset/problem/1421/A
+
 In order to celebrate Twice's 5th anniversary, Tzuyu and Sana decided to play a game.
 
 Tzuyu gave Sana two integers a
