@@ -1,0 +1,26 @@
+# Ignore build artifacts
+*.exe
+*.o
+*.obj
+*.out
+*.a
+*.so
+*.dll
+*.dylib
+
+# Ignore OS clutter
+.DS_Store
+Thumbs.db
+
+# Ignore editor/project files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/ 
