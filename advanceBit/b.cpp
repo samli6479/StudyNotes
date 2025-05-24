@@ -15,4 +15,67 @@ Additionally, no person ever makes a statement about themselves. Formally, we ha
 
 Return the maximum number of people who can be good based on the statements made by the n people.
 
+we can use bit mask to represent the combination of good and bad people.
+
+1 << n is the total number of combinations.
+
+for each one of the mask, we check if ith bit is set or not to determine if person is good or bad.
+
+if ith bit is set, we check if the statement made by ith person is consistent with the mask.
+
+
+
+
 */
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Solution {
+
+    public:
+
+    int maximumGood(vector<vector<int>>& statements) {
+
+        int n = statements.size();
+
+        int ans = 0;
+
+        for(int mask = 0; mask < (1 << n); mask ++){
+
+            bool ok = true;
+
+            for(int i = 0; i < n; i++){
+
+                // if ith bit is not set, we skip
+
+                if((mask & (1 << i)) == 0) continue;
+
+                // if ith bit is set, we check if the statement made by ith person is consistent with the mask.
+                for(int j = 0; j < n; j++){
+
+                    int good = (mask & (1 << j)); 
+
+                    if (statements[i][j] ==2) continue;
+
+                    if(statements[i][j] == 0 && good || statements[i][j] == 1 && !good){
+
+                        ok = false;
+
+                        break;
+
+                    }   
+                }                    
+
+            }
+
+            if(ok) ans = max(ans, __builtin_popcount(mask));
+
+
+        }
+
+        return ans;
+    }
+        
+};
